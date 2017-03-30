@@ -9,7 +9,6 @@ class ApplicationController < ActionController::Base
 
 	def authenticate_user
 		if user_signed_in?
-			redirect_to '/'
 		else
 			redirect_to '/signin_get'
 		end
