@@ -8,9 +8,8 @@ class ApplicationController < ActionController::Base
 	end
 
 	def authenticate_user
-		if user_signed_in?
-		else
-			redirect_to '/signin_get'
+		unless !user_signed_in?
+			redirect_to '/sign_in'
 		end
 	end
   
