@@ -11,7 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170330171832) do
+ActiveRecord::Schema.define(version: 20170330172450) do
+
+  create_table "answer_downvotes", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "answer_upvotes", force: :cascade do |t|
+    t.integer  "answer_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "answer_upvotes", ["answer_id"], name: "index_answer_upvotes_on_answer_id"
+  add_index "answer_upvotes", ["user_id"], name: "index_answer_upvotes_on_user_id"
 
   create_table "answers", force: :cascade do |t|
     t.integer  "user_id"
