@@ -10,11 +10,19 @@ class HomeController < ApplicationController
 		question.questions=question_content
 		question.user_id=session[:user_id]
 		question.save
+		puts question.id
+		question_follower=QuestionFollowersMapping.new
+		question_follower.question_id=question.id
+		question_follower.user_id=session[:user_id]
+		question_follower.save
 		redirect_to '/'
 	end
 
 	def questions_asked
 		@questions=Question.all
+	end
+
+	def follow
 	end
 
 end

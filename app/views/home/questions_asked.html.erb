@@ -1,6 +1,5 @@
 
 <% @questions.each do |question| %>
-	<%= question.questions %> 
-	<%= link_to "Follow", controller: :home,action: :follow,id: question.id %><br><br>
+	<%= question.questions %><br><br>
 	<% end %>
 <a href="/"> Home </a>
