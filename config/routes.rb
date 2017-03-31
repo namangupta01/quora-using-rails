@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   get '/questions_asked' => 'home#questions_asked'
 
   post '/sign_up'  =>  'authentication_system#sign_up'
+
+#  get '/home/follow'
+  get '/follow' => 'home#follow'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

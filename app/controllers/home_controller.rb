@@ -16,4 +16,5 @@ class HomeController < ApplicationController
 	def questions_asked
 		@questions=Question.all
 	end
+
 end
