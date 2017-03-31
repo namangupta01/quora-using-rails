@@ -25,4 +25,8 @@ class HomeController < ApplicationController
 	def follow
 	end
 
+	def find_people
+		@people_ids=User.all.pluck(:id)
+	end
+
 end

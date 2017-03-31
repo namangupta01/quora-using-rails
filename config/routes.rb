@@ -20,6 +20,10 @@ Rails.application.routes.draw do
 
 #  get '/home/follow'
   get '/follow' => 'home#follow'
+
+  get 'find_people' => 'home#find_people'
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

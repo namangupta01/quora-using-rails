@@ -1,0 +1,5 @@
+<% people_list = User.where("id in (?)",@people_ids) %>
+<% people_list.each do |person| %>
+	<%= person.name %> <%= person.email %>
+	<%= link_to  "follow" ,controller: :home,action: :follow, id: person.id %><br>
+	<% end %>
