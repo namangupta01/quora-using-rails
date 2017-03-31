@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   get 'signin_get' => 'authentication_system#signin_get'
 
+  get '/signup_get' => 'authentication_system#signup_get'
+
   post 'authentication_system/sign_in'
 
   get '/logout' => 'authentication_system#logout'
@@ -13,6 +15,8 @@ Rails.application.routes.draw do
   get '/ask_question' => 'home#ask_question'
 
   get '/questions_asked' => 'home#questions_asked'
+
+  post '/sign_up'  =>  'authentication_system#sign_up'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
