@@ -1,0 +1,9 @@
+<a href="/logout"> Logout </a>
+<br>
+Name:<%= @user.name %><br>
+Email:<%= @user.email %>
+
+<%= form_tag('/ask_question',method: :get) do %>
+	<%= text_area_tag(:question) %>
+	<%= submit_tag('Ask Question') %>
+	<% end %>

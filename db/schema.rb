@@ -14,9 +14,14 @@
 ActiveRecord::Schema.define(version: 20170330172450) do
 
   create_table "answer_downvotes", force: :cascade do |t|
+    t.integer  "answer_id"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "answer_downvotes", ["answer_id"], name: "index_answer_downvotes_on_answer_id"
+  add_index "answer_downvotes", ["user_id"], name: "index_answer_downvotes_on_user_id"
 
   create_table "answer_upvotes", force: :cascade do |t|
     t.integer  "answer_id"
@@ -49,11 +54,13 @@ ActiveRecord::Schema.define(version: 20170330172450) do
   add_index "question_downvotes", ["user_id"], name: "index_question_downvotes_on_user_id"
 
   create_table "question_upvotes", force: :cascade do |t|
+    t.integer  "question_id"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
+  add_index "question_upvotes", ["question_id"], name: "index_question_upvotes_on_question_id"
   add_index "question_upvotes", ["user_id"], name: "index_question_upvotes_on_user_id"
 
   create_table "questions", force: :cascade do |t|
@@ -64,6 +71,18 @@ ActiveRecord::Schema.define(version: 20170330172450) do
   end
 
   add_index "questions", ["user_id"], name: "index_questions_on_user_id"
+
+  create_table "upvotes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "question_id"
+    t.integer  "answer_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "upvotes", ["answer_id"], name: "index_upvotes_on_answer_id"
+  add_index "upvotes", ["question_id"], name: "index_upvotes_on_question_id"
+  add_index "upvotes", ["user_id"], name: "index_upvotes_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name",       null: false

@@ -8,9 +8,13 @@ class ApplicationController < ActionController::Base
 	end
 
 	def authenticate_user
-		unless !user_signed_in?
-			redirect_to '/sign_in'
+		unless user_signed_in?
+			redirect_to '/signin_get'
 		end
 	end
-  
+
+	def logout 
+		session[:user_id]=nil
+		redirect_to '/'
+	end
 end
