@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get 'sign_in'=> 'authentication_system#sign_in'
 
   get '/ask_question' => 'home#ask_question'
+
+  get '/questions_asked' => 'home#questions_asked'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -3,6 +3,7 @@
 Name:<%= @user.name %><br>
 Email:<%= @user.email %>
 
+<a href="questions_asked"> Question Asked </a>
 <%= form_tag('/ask_question',method: :get) do %>
 	<%= text_area_tag(:question) %>
 	<%= submit_tag('Ask Question') %>

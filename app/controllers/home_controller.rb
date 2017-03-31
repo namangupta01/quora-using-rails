@@ -12,4 +12,8 @@ class HomeController < ApplicationController
 		question.save
 		redirect_to '/'
 	end
+
+	def questions_asked
+		@questions=Question.all
+	end
 end
