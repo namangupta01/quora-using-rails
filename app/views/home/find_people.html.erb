@@ -1,5 +1,11 @@
 <% people_list = User.where("id in (?)",@people_ids) %>
 <% people_list.each do |person| %>
+	<% current_user = User.find_by_id(session[:user_id])
+		if current_user.followees.where(:followee_id => person.id).first
+			value = "unfollow"
+		else
+			value = "follow"
+		end %>
 	<%= person.name %> <%= person.email %>
-	<%= link_to  "follow" ,controller: :home,action: :follow, id: person.id %><br>
+	<%= link_to  value ,controller: :home,action: value, id: person.id%><br>
 	<% end %>

@@ -23,10 +23,22 @@ class HomeController < ApplicationController
 	end
 
 	def follow
+		follow_mapping=FollowMapping.new
+		follow_mapping.follower_id=session[:user_id]
+		follow_mapping.followee_id=params[:id].to_i
+		follow_mapping.save
+		redirect_to '/find_people'
 	end
 
+	def unfollow
+		id=params[:id]
+		remove_follow_mapping = FollowMapping.where(follower_id: session[:user_id],followee_id: id).first
+		remove_follow_mapping.destroy
+		redirect_to '/find_people'
+	end
 	def find_people
 		@people_ids=User.all.pluck(:id)
+		@people_ids.delete(session[:user_id])
 	end
 
 end

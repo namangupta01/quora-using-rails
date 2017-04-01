@@ -18,10 +18,11 @@ Rails.application.routes.draw do
 
   post '/sign_up'  =>  'authentication_system#sign_up'
 
-#  get '/home/follow'
-  get '/follow' => 'home#follow'
-
   get 'find_people' => 'home#find_people'
+
+  get 'home/follow'
+
+  get 'home/unfollow'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -10,12 +10,16 @@ class AuthenticationSystemController < ApplicationController
 		name=params[:name]
 		password=params[:password]
 		email=params[:email]
-		user=User.where(:email).first
+		user=User.where(:email=>email).first
 		if user
 			if user.password==password
+				session[:user_id]=user.id
+				redirect_to '/'
 			else 
-				redirect_to'/'
+				redirect_to'/signin_get'
 			end
+		else
+			redirect_to '/signup_get'
 		end
 	end
 
