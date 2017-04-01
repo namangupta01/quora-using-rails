@@ -1,0 +1,8 @@
+<%	current_user = session[:user_id]
+ 	@questions.each do |question| 
+		if question.user_id == current_user %>
+			<%= question.questions %>
+		<% else %>
+			<%= question.questions %>
+		<% end %><br>
+	<% end %>

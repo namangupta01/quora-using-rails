@@ -41,4 +41,7 @@ class HomeController < ApplicationController
 		@people_ids.delete(session[:user_id])
 	end
 
+	def all_questions
+		@questions=Question.all
+	end
 end
