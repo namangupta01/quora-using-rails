@@ -2,7 +2,15 @@
  	@questions.each do |question| 
 		if question.user_id == current_user %>
 			<%= question.questions %>
-		<% else %>
+		<% else 
+			if question.question_followers_mappings.find_by_user_id(current_user)
+				value = "unfollow_question" 
+				link = "unfollow"
+			else
+				value = "follow_question" 
+				link = "follow" %>
+			<% end %>
 			<%= question.questions %>
+			<%= link_to link,controller: :home ,action: value, id: question.id%>
 		<% end %><br>
 	<% end %>

@@ -44,4 +44,20 @@ class HomeController < ApplicationController
 	def all_questions
 		@questions=Question.all
 	end
+
+
+	def follow_question
+		id=params[:id].to_i
+		question_new_follower=QuestionFollowersMapping.create(question_id: id,user_id: session[:user_id])
+		question_new_follower.save
+		redirect_to '/all_questions'
+	end
+
+	def unfollow_question
+		id=params[:id].to_i
+		question_destroy_followers=QuestionFollowersMapping.find_by(question_id: id, user_id:session[:user_id])
+		question_destroy_followers.destroy
+		redirect_to '/all_questions'
+
+	end
 end

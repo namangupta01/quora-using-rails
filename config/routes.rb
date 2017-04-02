@@ -26,6 +26,10 @@ Rails.application.routes.draw do
 
   get '/all_questions'=>'home#all_questions'
 
+  get 'home/follow_question'
+
+  get '/home/unfollow_question'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
