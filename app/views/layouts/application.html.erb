@@ -7,6 +7,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<header id="header">
+		<div id="header-quora-image">
+			<a href="/"><img src="<%= image_url("quora.jpg") %>" id="img" ></a>	
+		</div>
+		<div id="search-section">
+			<%= form_tag({controller: :home,action: :search},method: :get) do %>
+			<%= text_field_tag(:search,nil,placeholder: 'Ask or Search Quora',id: 'search-bar')%><%= submit_tag('Ask Question',id: 'search-button') %>
+			<% end %>
+		</div>
+	</header>
 
 <%= yield %>
 

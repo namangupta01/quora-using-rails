@@ -13,3 +13,25 @@
  *= require_tree .
  *= require_self
  */
+#header{
+	display:flex;
+	align-items:center;
+}
+body {
+}
+#header-quora-image{
+	height: 10%;
+	width: 10%;
+	overflow: hidden;
+}
+#img{
+	width: 100%;
+}
+#search-section{
+	width: 30%;
+}
+#search-bar{
+	width: 70%;
+}
+#search-button{
+}

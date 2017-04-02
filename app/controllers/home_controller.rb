@@ -60,4 +60,7 @@ class HomeController < ApplicationController
 		redirect_to '/all_questions'
 
 	end
+
+	def search
+	end
 end
