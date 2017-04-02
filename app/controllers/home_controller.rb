@@ -62,5 +62,8 @@ class HomeController < ApplicationController
 	end
 
 	def search
+		search=params[:search]
+		query="questions like '%#{search}%'"
+		@questions=Question.where(query)
 	end
 end
