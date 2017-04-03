@@ -15,6 +15,7 @@
  */
 #header{
 	top: 0;
+	padding-left: 15%;
 	position: fixed;
 	display:flex;	
 	background: white;
@@ -33,7 +34,7 @@ body {
 	overflow: hidden;
 }
 #img{
-	width: 100%;
+	width: 90%;
 }
 #search-section{
 	width: 30%;
