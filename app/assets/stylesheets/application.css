@@ -14,10 +14,18 @@
  *= require_self
  */
 #header{
-	display:flex;
+	top: 0;
+	position: fixed;
+	display:flex;	
+	background: white;
 	align-items:center;
+	z-index: 999;
+	border-bottom: 1px solid #dddddd;
 }
 body {
+}
+#details{
+	padding-top: 10%;
 }
 #header-quora-image{
 	height: 10%;
@@ -34,4 +42,20 @@ body {
 	width: 70%;
 }
 #search-button{
+}
+
+#section{
+	margin: 0% 15% 0 15%;
+}
+#aside-section{
+	position: fixed;
+	width: 20%;
+	vertical-align: top;
+	display: inline-block;
+}
+#main-section{
+	width: 50%;
+	position: absolute;
+	left: 30%;
+	display: inline-block;
 }
