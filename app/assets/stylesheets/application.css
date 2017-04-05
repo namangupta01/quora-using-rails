@@ -24,6 +24,10 @@
 	border-bottom: 1px solid #dddddd;
 }
 body {
+	height: 100%;
+	width:100%;
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
 }
 #details{
 	padding-top: 10%;
@@ -62,7 +66,33 @@ body {
 }
 
 #sign-in-page{
-	width: 100%;
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
 	height: 100%;
-	background: url("starting.png");
+	width: 100%;
+	overflow: hidden;
+}
+#sign-in-page-image{
+
+}
+html{
+	height: 100%;
+}
+#image{
+	height: 100%;
+	width: 100%;
+}
+#sign-up-box{
+	position: absolute;
+	background-color: white;
+	display: flex;
+	justify-content:center;
+	height: 40%;
+	width: 40%;
+	left: 30%;
+	top: 30%;
+	z-index: 1;
+}
+
+#sign-in-page-quora-image{
 }

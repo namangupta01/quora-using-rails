@@ -1,12 +1,7 @@
-<div id="sign-in-page"></div>
 
-
-	<%= form_tag({controller: "authentication_system",action: "sign_in"},method: :post) do %>
-		<%= label_tag(:email,"Email") %>
-		<%= email_field_tag(:email) %><br>
-		<%= label_tag(:password,"Password") %>
-		<%= password_field_tag(:password) %><br>
-		<%= submit_tag("Sign in") %>
-		<% end %>
-
-	<a href="/signup_get">Sign Up</a>
+<div id="sign-in-page">
+	<img src="<%= image_url("starting.png")%>" id="image">
+	<div id="sign-up-box">
+		<img src="<%= image_url("quora.jpg")%>" id="sign-in-page-quora-image" >
+	</div>
+</div>
