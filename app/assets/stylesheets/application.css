@@ -81,18 +81,49 @@ html{
 #image{
 	height: 100%;
 	width: 100%;
+	transform:scale(1.3);
 }
 #sign-up-box{
 	position: absolute;
-	background-color: white;
+	background-color:white;
 	display: flex;
-	justify-content:center;
-	height: 40%;
-	width: 40%;
-	left: 30%;
-	top: 30%;
+	align-items:center;
+	justify-content:space-between;
+	flex-direction:column;
+	height: 60%;
+	width: 48%;
+	left: 26%;
+	top: 15%;
 	z-index: 1;
+	border: transparent;
 }
 
 #sign-in-page-quora-image{
+	width: 35%;
 }
+#sign-in-box-inner{
+	height: 100%;
+	width: 90%;
+	border: solid thin;
+	border-radius: 4px 4px 4px 4px;
+	border-color: #dee0e2;
+	display: flex;
+	flex-direction:row;
+	padding: 5% 5% 5% 5%;
+	align-items:center;
+	justify-content:space-around;
+}
+/*#sign-in-with-apis{
+	display: flex;
+	flex-direction:column;
+	align-items:center;
+}
+
+#sign-in-with-facebook{
+	padding: 4% 4% 4% 4%;
+	text-align: center;
+	background-color: red;
+
+
+}*/
+
