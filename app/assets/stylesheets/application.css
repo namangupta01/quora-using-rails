@@ -53,6 +53,7 @@ body {
 	margin: 0% 15% 0 15%;
 }
 #aside-section{
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 	position: fixed;
 	width: 20%;
 	vertical-align: top;
@@ -106,7 +107,7 @@ html{
 	width: 90%;
 	border: solid thin;
 	border-radius: 4px 4px 4px 4px;
-	border-color: #dee0e2;
+	border-color: #333;
 	display: flex;
 	flex-direction:row;
 	padding: 5% 5% 5% 5%;
@@ -126,4 +127,15 @@ html{
 
 
 }*/
-
+#feed-head{
+	margin: 4% 3% 4% 4%;
+	border-bottom: solid thin #dee0e2; 
+	padding-bottom: 10px;
+	color: #333;
+}
+#feeds-list{
+	font-size: 15px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	color: #333;
+}
