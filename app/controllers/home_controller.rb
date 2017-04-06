@@ -2,6 +2,7 @@ class HomeController < ApplicationController
 	before_action :authenticate_user
 	def index
 		@user=User.where(session[:user_id]).first
+		byebug
 	end
 
 	def ask_question
@@ -68,6 +69,6 @@ class HomeController < ApplicationController
 	end
 
 	def top_stories
-		
+
 	end
 end
