@@ -7,10 +7,15 @@
 			<%= text_field_tag(:search,nil,placeholder: 'Ask or Search Quora',id: 'search-bar')%><%= submit_tag('Ask Question',id: 'search-button') %>
 			<% end %>
 		</div>
+		<div> <a href="">Read</a> </div>
+		<div> <a href="">Answer</a> </div>
+		<div> <a href="">Notification</a> </div>
+		<div> <a href=""><%= @user.name %></a> </div>
+		<div> <a href="/logout">Logout</a> </div>
 	</div>
 
 
-<section id="details">
+<!-- <section id="details">
 <a href="/logout"> Logout </a>
 <br>
 Name:<%= @user.name %><br>
@@ -22,7 +27,7 @@ Email:<%= @user.email %>
 	<%= text_area_tag(:question) %>
 	<%= submit_tag('Ask Question') %>
 	<% end %>
-</section>
+</section> -->
 <section id="section">
 	<aside id="aside-section">
 		<div id="feed-head">Feeds</div>

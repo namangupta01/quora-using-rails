@@ -66,4 +66,8 @@ class HomeController < ApplicationController
 		query="questions like '%#{search}%'"
 		@questions=Question.where(query)
 	end
+
+	def top_stories
+		
+	end
 end
