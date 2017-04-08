@@ -74,6 +74,7 @@ class HomeController < ApplicationController
 	end
 
 	def particular_question
+		@user=User.find_by_id(session[:user_id])
 		id=params[:id].to_i
 	end
 end

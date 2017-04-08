@@ -33,6 +33,14 @@ Email:<%= @user.email %>
 						<%= link_to question.questions, url_for(controller: :home,action: :particular_question,id: question.id) %>
 					</div>
 					<div>
+						<% answer=question.answers.first %>
+						<% if answer %>
+							<div id="answer">
+								<%= answer %>
+							</div>
+						<% else %>
+						<% end %>
+						<% byebug %>
 					</div>
 				</div>
 			<% end %>
