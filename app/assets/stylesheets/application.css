@@ -16,7 +16,7 @@
 #header{
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 	top: 0;
-	padding-left: 15%;
+	padding-left: 14%;
 	padding-right: 5%;
 	position: fixed;
 	display:flex;	
@@ -81,7 +81,16 @@ body {
 }
 #main-section > div > #question{
 	font-weight: bold;
+	color: #382f2f;
 }
+#main-section > div > #question > a{
+	text-decoration: none;
+	color: #382f2f;
+}
+#main-section > div > #question > a:hover{
+	text-decoration: underline;
+}
+
 #main-section{
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 	font-size: 100%;
@@ -166,4 +175,13 @@ html{
 }
 #aside-section a {
 	text-decoration: none;
+}
+#content-block:hover{
+	background-color: #f2efef;
+}
+#content-block{
+	padding-left: 2%;
+}
+div{
+	text-transform: capitalize;
 }

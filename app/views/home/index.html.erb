@@ -51,14 +51,19 @@ Email:<%= @user.email %>
 	</aside>
 	<main id="main-section">
 		<div>Top Stories For You</div>
-		<div>
+		<div id="content-block">
 			<div id="name"><%= @user.name %></div>
-			<div id="question">What is your question?</div>
+			<div id="question">
+				<%= link_to "What is your Question?", url_for(controller: :home,action: :ask_question)%>
+			</div>
 		</div>
 			<%= @questions.each do |question| %>
-				<div>
-					<div id="question"><%= question.questions %></div>
-					<div></div>
+				<div id="content-block">
+					<div id="question">
+						<%= link_to question.questions, url_for(controller: :home,action: :particular_question),id: question.id%>
+					</div>
+					<div>
+					</div>
 				</div>
 			<% end %>
 	</main>	
