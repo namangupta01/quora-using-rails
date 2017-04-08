@@ -7,10 +7,23 @@
 			<%= text_field_tag(:search,nil,placeholder: 'Ask or Search Quora',id: 'search-bar')%><%= submit_tag('Ask Question',id: 'search-button') %>
 			<% end %>
 		</div>
-		<div> <a href="">Read</a> </div>
-		<div> <a href="">Answer</a> </div>
-		<div> <a href="">Notification</a> </div>
-		<div> <a href=""><%= @user.name %></a> </div>
+		<div> 
+			<a href="">Read</a> 
+		</div>
+		<div>
+			<a href="">Answer</a>
+		</div>
+		<div>
+			<a href="">Notification</a>
+		</div>
+		<div id="drop-down">
+			<a href="" id="drop-down-button"><%= @user.name %></a>
+			<div id="drop-down-menu-button">
+				<div id="drop-down-menu-button">
+
+				</div>	
+			</div>
+		</div>
 		<div> <a href="/logout">Logout</a> </div>
 	</div>
 
@@ -31,18 +44,22 @@ Email:<%= @user.email %>
 <section id="section">
 	<aside id="aside-section">
 		<div id="feed-head">Feeds</div>
-		<a href=""><li id="feeds-list">Top Stories</li></a>
-		<a href=""><li id="feeds-list">New Questions</li></a>
-		<a href=""><li id="feeds-list">Bookmarked Answers</li></a>
-		<a href=""><li id="feeds-list">Asked Questions</li></a>
+		<a href="/"><li id="feeds-list">Top Stories</li></a>
+		<a href="/new_question"><li id="feeds-list">New Questions</li></a>
+		<a href="/bookmarked_answers"><li id="feeds-list">Bookmarked Answers</li></a>
+		<a href="/questions_asked"><li id="feeds-list">Asked Questions</li></a>
 	</aside>
 	<main id="main-section">
-
-
+		<div>Top Stories For You</div>
+		<div>
+			<div id="name"><%= @user.name %></div>
+			<div id="question">What is your question?</div>
+		</div>
+			<%= @questions.each do |question| %>
+				<div>
+					<div id="question"><%= question.questions %></div>
+					<div></div>
+				</div>
+			<% end %>
 	</main>	
 </section>
-
-
-
-
-

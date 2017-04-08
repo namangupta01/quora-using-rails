@@ -1,8 +1,9 @@
 class HomeController < ApplicationController
 	before_action :authenticate_user
 	def index
-		@user=User.where(session[:user_id]).first
-		byebug
+		@user=User.find_by_id(session[:user_id])
+		ids=@user.followees.pluck(:followee_id) + [session[:user_id]]
+		@questions=Question.where("user_id in (?)",ids)
 	end
 
 	def ask_question

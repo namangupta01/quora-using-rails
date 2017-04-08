@@ -65,13 +65,29 @@ body {
 	position: fixed;
 	width: 15%;
 	vertical-align: top;
-	display: inline-block;
+}
+#main-section>div{
+	padding-top: 15px;
+	border-bottom: solid thin #dee0e2; 
+	padding-bottom: 13px;
+	color: #333;
+
+}
+#main-section > div > #name{
+	padding-left: 4%;
+	padding-bottom: 1%;
+	text-transform: capitalize;
+	color: #999;
+}
+#main-section > div > #question{
+	font-weight: bold;
 }
 #main-section{
-	width: 50%;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 100%;
+	width: 40%;
 	position: absolute;
-	left: 30%;
-	display: inline-block;
+	left: 31%;
 }
 
 #sign-in-page{
@@ -115,7 +131,7 @@ html{
 	width: 90%;
 	border: solid thin;
 	border-radius: 4px 4px 4px 4px;
-	border-color: #333;
+	border-color: #bbbcbf;
 	display: flex;
 	flex-direction:row;
 	padding: 5% 5% 5% 5%;
@@ -138,6 +154,7 @@ html{
 #feed-head{
 	margin: 4% 3% 4% 4%;
 	border-bottom: solid thin #dee0e2; 
+	padding-top: 10px;
 	padding-bottom: 10px;
 	color: #333;
 }
@@ -145,8 +162,7 @@ html{
 	font-size: 15px;
 	padding-top: 10px;
 	padding-bottom: 10px;
-
-	color: #333;
+	color: #999;
 }
 #aside-section a {
 	text-decoration: none;
