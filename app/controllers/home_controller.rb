@@ -72,4 +72,8 @@ class HomeController < ApplicationController
 	def top_stories
 
 	end
+
+	def particular_question
+		id=params[:id].to_i
+	end
 end

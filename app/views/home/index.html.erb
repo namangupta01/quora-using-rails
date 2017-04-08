@@ -1,33 +1,3 @@
-<div id="header">
-		<div id="header-quora-image">
-			<a href="/"><img src="<%= image_url("quora.jpg") %>" id="img" ></a>	
-		</div>
-		<div id="search-section">
-			<%= form_tag({controller: :home,action: :search},method: :get) do %>
-			<%= text_field_tag(:search,nil,placeholder: 'Ask or Search Quora',id: 'search-bar')%><%= submit_tag('Ask Question',id: 'search-button') %>
-			<% end %>
-		</div>
-		<div> 
-			<a href="">Read</a> 
-		</div>
-		<div>
-			<a href="">Answer</a>
-		</div>
-		<div>
-			<a href="">Notification</a>
-		</div>
-		<div id="drop-down">
-			<a href="" id="drop-down-button"><%= @user.name %></a>
-			<div id="drop-down-menu-button">
-				<div id="drop-down-menu-button">
-
-				</div>	
-			</div>
-		</div>
-		<div> <a href="/logout">Logout</a> </div>
-	</div>
-
-
 <!-- <section id="details">
 <a href="/logout"> Logout </a>
 <br>
@@ -60,7 +30,7 @@ Email:<%= @user.email %>
 			<%= @questions.each do |question| %>
 				<div id="content-block">
 					<div id="question">
-						<%= link_to question.questions, url_for(controller: :home,action: :particular_question),id: question.id%>
+						<%= link_to question.questions, url_for(controller: :home,action: :particular_question,id: question.id) %>
 					</div>
 					<div>
 					</div>
