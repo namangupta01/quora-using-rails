@@ -3,7 +3,8 @@ class HomeController < ApplicationController
 	def index
 		@user=User.find_by_id(session[:user_id])
 		ids=@user.followees.pluck(:followee_id) + [session[:user_id]]
-		@questions=Question.where("user_id in (?)",ids)
+		#@questions=Question.where("user_id in (?)",ids)
+		@questions=Question.all
 	end
 
 	def ask_question
@@ -52,14 +53,14 @@ class HomeController < ApplicationController
 		id=params[:id].to_i
 		question_new_follower=QuestionFollowersMapping.create(question_id: id,user_id: session[:user_id])
 		question_new_follower.save
-		redirect_to '/all_questions'
+		redirect_to '/'
 	end
 
 	def unfollow_question
 		id=params[:id].to_i
 		question_destroy_followers=QuestionFollowersMapping.find_by(question_id: id, user_id:session[:user_id])
 		question_destroy_followers.destroy
-		redirect_to '/all_questions'
+		redirect_to '/'
 
 	end
 
@@ -76,5 +77,14 @@ class HomeController < ApplicationController
 	def particular_question
 		@user=User.find_by_id(session[:user_id])
 		id=params[:id].to_i
+	end
+
+	def give_answer
+	end
+
+	def submit_answer
+		id=params[:user_id].to_i
+		answer=Answer.create(user_id: session[:user_id].to_i, question_id: id)
+		answer.save
 	end
 end

@@ -185,3 +185,33 @@ html{
 div{
 	text-transform: capitalize;
 }
+#block-secondary-content{
+	margin-top: 3%;
+	display: flex;
+	font-size: 80%;
+	justify-content:space-between;
+	align-items:center;
+	width: 20vw;
+}
+#give-answer{
+	background-color: #c1d8ef;
+	border-radius: 10% 10% 10% 10%;
+	color: #2b6dad;
+	padding : 1% 2% 1% 2%;
+
+}
+#follow-question{
+	display: flex;
+	align-items:center;
+}
+#question-follow-numbers{
+	margin-left: 20%;
+	background-color: #eee;
+	padding: 2px 2px 2px 2px;
+}
+a{
+	text-decoration: none;
+}
+a:hover{
+	text-decoration: underline;
+};

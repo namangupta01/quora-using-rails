@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   post '/sign_up'  =>  'authentication_system#sign_up'
 
   get 'find_people' => 'home#find_people'
+  get 'home/particular_question'
 
   get 'home/follow'
 
@@ -32,7 +33,11 @@ Rails.application.routes.draw do
 
   get 'home/search'
 
-  get 'home/particular_question'
+  get'home/question_upvote'
+
+  get 'home/question_downvote'
+
+  get 'home/give_answer'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

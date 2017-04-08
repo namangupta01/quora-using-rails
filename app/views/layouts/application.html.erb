@@ -8,6 +8,7 @@
 </head>
 <body>
 	<% unless session[:user_id].nil? %>
+			<% @user=User.find_by_id(session[:user_id].to_i) %>
 			<div id="header">
 			<div id="header-quora-image">
 				<a href="/"><img src="<%= image_url("quora.jpg") %>" id="img" ></a>	
