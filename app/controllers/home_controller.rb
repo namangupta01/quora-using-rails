@@ -80,6 +80,15 @@ class HomeController < ApplicationController
 	end
 
 	def give_answer
+		id=params[:id].to_i
+		@question=Question.where(id: id).first
+		question_part=@question.questions.split(" ")
+		@related_questions=[]
+		question_part.each	do |part|
+			query="questions like '%#{part}%'"	
+			@related_questions+=Question.where(query)
+		end
+		@related_questions=@related_questions.uniq
 	end
 
 	def submit_answer
