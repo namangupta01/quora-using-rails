@@ -52,7 +52,7 @@ Email:<%= @user.email %>
 											value= "Follow"
 											link="follow_question"
 										 end %>
-										<%= link_to value, url_for(controller: :home,action: link,id:question.id) %>
+										<%= link_to value, url_for(controller: :home,action: link,id:question.id),class: "follow_question",id: "question_#{question.id}" %>
 									</div>
 									<div id="question-follow-numbers"> <%= question.question_followers_mappings.length %></div>
 								</div>

@@ -14,3 +14,37 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+function onBodyLoad(){
+	d = document.getElementsByClassName("follow_question");	
+	console.log(d);
+	for (i=0; i<d.length ;i++){
+		click=function(event){
+			event.preventDefault();
+			$.ajax({
+				url: '/question_follow_mapping',
+				method: 'POST',
+				data:{id: this.id},
+				success:function(data){
+					id_name="question_'#{data.question_id}'" + 
+					element=document.getElementById(id_name)
+					if (data["followed"]==true){
+						this.innerText="Unfollow";
+					}
+					else{
+						this.innerText="Follow";
+					}
+				},
+				error:function(){
+					console.log("not connected to server")
+					console.log(this);
+				}
+			})
+			
+		}
+		d[i].addEventListener("click",click.bind(d[i]));
+	}
+}
+window.addEventListener("load",function(event){
+	onBodyLoad();
+});

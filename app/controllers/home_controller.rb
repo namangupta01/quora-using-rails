@@ -96,4 +96,20 @@ class HomeController < ApplicationController
 		answer=Answer.create(user_id: session[:user_id].to_i, question_id: id)
 		answer.save
 	end
+
+	def question_follow_mapping_json
+		id = params[:id].to_i
+		followed=Question.find_by_id(id).question_followers_mappings.where(user_id:session[:user_id].to_i).first
+		data=Hash.new
+		if followed
+			followed.destroy
+			data[followed]=false
+		else
+			question_new_follower = QuestionFollowersMapping.create(user_id:session[:user_id].to_i,question_id:id)
+			question_new_follower.save
+			data[followed] = true
+		end
+			data["question_id"]=id
+		render json: data
+	end
 end

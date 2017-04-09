@@ -38,6 +38,8 @@ Rails.application.routes.draw do
   get 'home/question_downvote'
 
   get 'home/give_answer'
+
+  post 'question_follow_mapping' => 'home#question_follow_mapping_json'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
