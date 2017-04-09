@@ -103,13 +103,15 @@ class HomeController < ApplicationController
 		data=Hash.new
 		if followed
 			followed.destroy
-			data[followed]=false
+			data["followed"]=false
 		else
 			question_new_follower = QuestionFollowersMapping.create(user_id:session[:user_id].to_i,question_id:id)
 			question_new_follower.save
-			data[followed] = true
+			data["followed"] = true
 		end
 			data["question_id"]=id
+			number_of_question_followers=Question.find_by_id(id).question_followers_mappings.length
+			data["number_of_followers"]=number_of_question_followers
 		render json: data
 	end
 end

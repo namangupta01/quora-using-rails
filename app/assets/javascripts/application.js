@@ -24,15 +24,19 @@ function onBodyLoad(){
 			$.ajax({
 				url: '/question_follow_mapping',
 				method: 'POST',
-				data:{id: this.id},
+				data:{id: this.id.slice(9)},
 				success:function(data){
-					id_name="question_'#{data.question_id}'" + 
+					id_name="question_"+ data.question_id
+					console.log(id_name)
 					element=document.getElementById(id_name)
+					d=document.getElementsByClassName("question_#{data.question_id}-follow-numbers")
+					console.log(id_name)
+					d.innerText=""+data.number_of_followers
 					if (data["followed"]==true){
-						this.innerText="Unfollow";
+						element.innerText="Unfollow";
 					}
 					else{
-						this.innerText="Follow";
+						element.innerText="Follow";
 					}
 				},
 				error:function(){

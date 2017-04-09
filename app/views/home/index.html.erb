@@ -54,7 +54,7 @@ Email:<%= @user.email %>
 										 end %>
 										<%= link_to value, url_for(controller: :home,action: link,id:question.id),class: "follow_question",id: "question_#{question.id}" %>
 									</div>
-									<div id="question-follow-numbers"> <%= question.question_followers_mappings.length %></div>
+									<div class="question-follow-numbers"> <%= question.question_followers_mappings.length %></div>
 								</div>
 								<div id="upvote-question">
 									<%= link_to "Upvote", url_for(controller: :home,action: :question_upvote,id: question.id) %>
