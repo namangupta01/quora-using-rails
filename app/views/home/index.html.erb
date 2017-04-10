@@ -56,12 +56,24 @@ Email:<%= @user.email %>
 									</div>
 									<div id = <%= "question_#{question.id}-followers-numbers" %> class="question-follow-numbers" >  <%= question.question_followers_mappings.length %> </div>
 								</div>
-								<div id="upvote-question">
-									<%= link_to "Upvote", url_for(controller: :home,action: :question_upvote,id: question.id) %>
+								<% if question.question_upvotes.where(user_id:session[:user_id].to_i).first %>
+									<div id="upvote-question">
+									<%= link_to "Upvoted", url_for(controller: :home,action: :question_upvote,id: question.id) %>
 								</div>
-								<div id="downvote-question">
-									<%= link_to "Downvote", url_for(controller: :home,action: :question_downvote,id: question.id) %>
+								<% else %>
+									<div id="upvote-question">
+										<%= link_to "Upvote", url_for(controller: :home,action: :question_upvote,id: question.id) %>
 								</div>
+								<% end %>
+								<% if question.question_downvotes.where(user_id:session[:user_id].to_i).first %>
+									<div id="downvote-question">
+									<%= link_to "Downvoted", url_for(controller: :home,action: :question_downvote,id: question.id) %>
+								</div>
+								<% else %>
+									<div id="downvote-question">
+										<%= link_to "Downvote", url_for(controller: :home,action: :question_downvote,id: question.id) %>
+								</div>
+								<% end %>
 							</div>
 						<% end %>
 					</div>

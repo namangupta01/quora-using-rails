@@ -97,6 +97,32 @@ class HomeController < ApplicationController
 		answer.save
 	end
 
+	def question_upvote
+		id=params[:id].to_i
+		question_upvote=QuestionUpvote.where(question_id: id, user_id: session[:user_id].to_i).first
+		if question_upvote
+			question_upvote.destroy
+		else
+			new_question_upvote=QuestionUpvote.create(question_id: id,user_id:session[:user_id].to_i)
+			new_question_upvote.save
+		end
+		redirect_to '/'		
+
+	end
+
+	def question_downvote
+		id=params[:id].to_i
+		question_downvote=QuestionDownvote.where(question_id: id, user_id: session[:user_id].to_i).first
+		if question_downvote
+			question_downvote.destroy
+		else
+			new_question_downvote=QuestionDownvote.create(question_id: id,user_id:session[:user_id].to_i)
+			new_question_downvote.save
+		end
+		redirect_to '/'	
+
+	end
+
 	def question_follow_mapping_json
 		id = params[:id].to_i
 		followed=Question.find_by_id(id).question_followers_mappings.where(user_id:session[:user_id].to_i).first
