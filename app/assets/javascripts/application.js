@@ -18,7 +18,7 @@
 function onBodyLoad(){
 	d = document.getElementsByClassName("follow_question");	
 	console.log(d);
-	for (i=0; i<d.length ;i++){
+	for (i=0; i<d.length;i++){
 		click=function(event){
 			event.preventDefault();
 			$.ajax({

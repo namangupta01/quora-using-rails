@@ -207,7 +207,7 @@ div{
 	display: flex;
 	align-items:center;
 }
-#question-follow-numbers{
+.question-follow-numbers{
 	margin-left: 20%;
 	background-color: #eee;
 	padding: 2px 2px 2px 2px;
