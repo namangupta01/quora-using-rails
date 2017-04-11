@@ -30,7 +30,7 @@ function onBodyLoad(){
 					element=document.getElementById(id_name)
 					d=document.getElementById(id_name+"-followers-numbers")
 					d.innerText=""+data.number_of_followers
-					if (data["followed"]==true){
+					if (data.followed==true){
 						element.innerText="Unfollow";
 					}
 					else{
@@ -45,7 +45,36 @@ function onBodyLoad(){
 		}
 		d[i].addEventListener("click",click.bind(d[i]));
 	}
+	questionUpvoteElements=document.getElementsByClassName("upvote-question")
+questionUpvoteElementsLength=questionUpvoteElements.length
+for (i=0;i<questionUpvoteElementsLength;i++){
+	upvoteClick=function(event){
+		event.preventDefault();
+		questionId=this.id.slice(16);
+		$.ajax({
+			url:'/question_upvote_mapping',
+			method:'POST',
+			data:{id: questionId},
+			success: function(data){
+				element=document.getElementById("upvote_question_"+questionId)
+				if (data["upvote"]==true){	
+					element.innerText="Upvoted"
+				}	
+				else{
+					element.innerText="Upvote"
+					}	
+				},
+			error:function(){
+				console.log("connection error");
+			}
+		})
+
+
+	}
+	questionUpvoteElements[i].addEventListener("click",upvoteClick.bind(questionUpvoteElements[i]));
+}
 }
 window.addEventListener("load",function(event){
 	onBodyLoad();
-});
+}
+);

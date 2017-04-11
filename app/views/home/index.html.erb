@@ -54,15 +54,15 @@ Email:<%= @user.email %>
 										 end %>
 										<%= link_to value, url_for(controller: :home,action: link,id:question.id),class: "follow_question",id: "question_#{question.id}" %>
 									</div>
-									<div id = <%= "question_#{question.id}-followers-numbers" %> class="question-follow-numbers" >  <%= question.question_followers_mappings.length %> </div>
+									<div id = <%= "question_#{question.id}-followers-numbers" %> class="question-follow-numbers" ><%= question.question_followers_mappings.length %></div>
 								</div>
 								<% if question.question_upvotes.where(user_id:session[:user_id].to_i).first %>
-									<div id="upvote-question">
-									<%= link_to "Upvoted", url_for(controller: :home,action: :question_upvote,id: question.id) %>
+									<div>
+										<%= link_to "Upvoted", url_for(controller: :home,action: :question_upvote,id: question.id),id:"upvote_question_#{question.id}",class:"upvote-question"%>
 								</div>
 								<% else %>
-									<div id="upvote-question">
-										<%= link_to "Upvote", url_for(controller: :home,action: :question_upvote,id: question.id) %>
+									<div >
+										<%= link_to "Upvote", url_for(controller: :home,action: :question_upvote,id: question.id),id: "upvote_question_#{question.id}",class:"upvote-question" %>
 								</div>
 								<% end %>
 								<% if question.question_downvotes.where(user_id:session[:user_id].to_i).first %>

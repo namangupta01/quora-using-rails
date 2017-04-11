@@ -140,4 +140,21 @@ class HomeController < ApplicationController
 			data["number_of_followers"]=number_of_question_followers
 		render json: data
 	end
+
+
+	def question_upvote_mapping_json
+		id=params[:id].to_i
+		question_upvoter=QuestionUpvote.where(question_id: id, user_id: session[:user_id].to_i).first
+		data=Hash.new
+		if question_upvoter
+			question_upvoter.destroy
+			data["upvote"]=false
+		else
+			new_question_upvoter=QuestionUpvote.create(question_id:id,user_id:session[:user_id].to_i)
+			new_question_upvoter.save
+			data["upvote"]=true
+		end
+		data["question_id"]=id
+		render json:data
+	end
 end
