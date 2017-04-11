@@ -17,7 +17,6 @@
 
 function onBodyLoad(){
 	d = document.getElementsByClassName("follow_question");	
-	console.log(d);
 	for (i=0; i<d.length;i++){
 		click=function(event){
 			event.preventDefault();
@@ -26,6 +25,7 @@ function onBodyLoad(){
 				method: 'POST',
 				data:{id: this.id.slice(9)},
 				success:function(data){
+					console.log(this);
 					id_name="question_"+ data.question_id
 					element=document.getElementById(id_name)
 					d=document.getElementById(id_name+"-followers-numbers")
@@ -72,6 +72,34 @@ for (i=0;i<questionUpvoteElementsLength;i++){
 
 	}
 	questionUpvoteElements[i].addEventListener("click",upvoteClick.bind(questionUpvoteElements[i]));
+}
+
+questionDownvoteElements=document.getElementsByClassName("downvote-question")
+questionDownvoteElementsLength=questionDownvoteElements.length
+for (i=0;i<questionDownvoteElementsLength;i++){
+	downvoteClick=function(data){
+		event.preventDefault();
+		questionId=this.id.slice(18)
+		$.ajax({
+			url:'/question_downvote_mapping',
+			method:'POST',
+			data:{id:questionId},
+			success:function(data){
+				element=document.getElementById("downvote_question_"+questionId);
+				if (data.downvote==true){
+					element.innerText="Downvoted"
+				}
+				else{
+					element.innerText="Downvote"
+				}
+
+			},
+			error:function(){
+				console.log("connection error");
+			}
+		})
+	}
+	questionDownvoteElements[i].addEventListener("click",downvoteClick.bind(questionDownvoteElements[i]))
 }
 }
 window.addEventListener("load",function(event){

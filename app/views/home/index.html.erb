@@ -66,12 +66,12 @@ Email:<%= @user.email %>
 								</div>
 								<% end %>
 								<% if question.question_downvotes.where(user_id:session[:user_id].to_i).first %>
-									<div id="downvote-question">
-									<%= link_to "Downvoted", url_for(controller: :home,action: :question_downvote,id: question.id) %>
+									<div>
+									<%= link_to "Downvoted", url_for(controller: :home,action: :question_downvote,id: question.id),id:"downvote_question_#{question.id}",class:"downvote-question"%>
 								</div>
 								<% else %>
-									<div id="downvote-question">
-										<%= link_to "Downvote", url_for(controller: :home,action: :question_downvote,id: question.id) %>
+									<div>
+										<%= link_to "Downvote", url_for(controller: :home,action: :question_downvote,id: question.id),id:"downvote_question_#{question.id}",class:"downvote-question" %>
 								</div>
 								<% end %>
 							</div>

@@ -157,4 +157,22 @@ class HomeController < ApplicationController
 		data["question_id"]=id
 		render json:data
 	end
-end
+
+
+	def question_downvote_mapping_json
+		id=params[:id].to_i
+		question_downvoter=QuestionDownvote.where(question_id: id, user_id: session[:user_id].to_i).first
+		data=Hash.new
+		if question_downvoter
+			question_downvoter.destroy
+			data["downvote"]=false
+		else
+			new_question_downvoter=QuestionDownvote.create(question_id:id,user_id:session[:user_id].to_i)
+			new_question_downvoter.save
+			data["downvote"]=true
+		end
+		data["question_id"]=id
+		render json:data
+	end
+
+end	
