@@ -43,7 +43,7 @@ Email:<%= @user.email %>
 								<div id="give-answer">
 									<%= link_to Answer,url_for(controller: :home, action: 'give_answer' ,id: question.id ) %>
 								</div>
-								<div id="follow-question">
+								<div class="follow-question">
 									<div>
 										<% if question.question_followers_mappings.where(user_id: session[:user_id].to_i).first
 											value = "Unfollow"
