@@ -44,6 +44,10 @@ Rails.application.routes.draw do
   post 'question_upvote_mapping'=> 'home#question_upvote_mapping_json'
 
   post 'question_downvote_mapping'=> 'home#question_downvote_mapping_json'
+
+  get '/profile_page' =>  'home#profile_page'
+
+  post '/profile_update' =>'home#profile_update'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

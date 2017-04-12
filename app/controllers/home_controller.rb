@@ -175,4 +175,20 @@ class HomeController < ApplicationController
 		render json:data
 	end
 
+	def profile_page
+	end
+
+	def profile_update
+		byebug
+		profile_picture=params["profile_picture"]
+		profile_picture_name=SecureRandom.hex+"."+profile_picture.original_filename.split(".")[1]
+		File.open(Rails.root.join('public','uploads',profile_picture_name),'wb') do |file|
+			file.write(profile_picture.read)
+		end
+		current_user=User.find_by_id(session[:user_id].to_i)
+		current_user.profile_picture_name=profile_picture_name
+		current_user.save
+		redirect_to '/profile_page'
+	end
+
 end	
