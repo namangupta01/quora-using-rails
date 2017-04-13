@@ -41,7 +41,7 @@ Email:<%= @user.email %>
 						<% else %>
 							<div id="block-secondary-content">
 								<div id="give-answer">
-									<%= link_to Answer,url_for(controller: :home, action: 'give_answer' ,id: question.id ) %>
+									<%= link_to Answer,url_for(controller: :home, action: 'give_answer' ,id: question.id ),class: "answer-button" %>
 								</div>
 								<div class="follow-question">
 									<div>
@@ -72,7 +72,7 @@ Email:<%= @user.email %>
 								<% else %>
 									<div>
 										<%= link_to "Downvote", url_for(controller: :home,action: :question_downvote,id: question.id),id:"downvote_question_#{question.id}",class:"downvote-question" %>
-								</div>
+									</div>
 								<% end %>
 							</div>
 						<% end %>

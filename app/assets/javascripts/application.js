@@ -20,11 +20,13 @@ function onBodyLoad(){
 	for (i=0; i<d.length;i++){
 		click=function(event){
 			event.preventDefault();
+			console.log("ajax");
 			$.ajax({
 				url: '/question_follow_mapping',
 				method: 'POST',
 				data:{id: this.id.slice(9)},
 				success:function(data){
+					console.log("ajax called sucess")
 					console.log(this);
 					id_name="question_"+ data.question_id
 					element=document.getElementById(id_name)
@@ -101,6 +103,14 @@ for (i=0;i<questionDownvoteElementsLength;i++){
 	}
 	questionDownvoteElements[i].addEventListener("click",downvoteClick.bind(questionDownvoteElements[i]))
 }
+
+elements=document.getElementsByClassName("answer-button")
+	for(i=0;i<elements.length;i++){
+		elements[i].addEventListener("click",function(){
+			console.log("asd");
+			location.reload();
+		})
+	}
 }
 window.addEventListener("load",function(event){
 	onBodyLoad();

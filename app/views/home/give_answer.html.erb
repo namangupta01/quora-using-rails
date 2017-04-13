@@ -3,7 +3,7 @@
 	<%= @question.questions %>
 	</div>
 		<div id="question-page-main-section">
-			<div id="give-answer">
+			<!-- <div id="give-answer">
 				<%= link_to Answer,url_for(controller: :home, action: 'give_answer' ,id: @question.id ) %>
 			</div>
 			<div id="follow-question">
@@ -22,10 +22,44 @@
 			</div>
 			<div id="upvote-question">
 				<%= link_to "Upvote", url_for(controller: :home,action: :question_upvote,id: @question.id) %>
-			</div>
+				</div>
 			<div id="downvote-question">
 				<%= link_to "Downvote", url_for(controller: :home,action: :question_downvote,id: @question.id) %>
-			</div>
+			</div> -->
+			<div id="give-answer">
+									<%= link_to Answer,url_for(controller: :home, action: 'give_answer' ,id: "answer_button_question_#{@question.id}" ) %>
+								</div>
+								<div class="follow-question">
+									<div>
+										<% if @question.question_followers_mappings.where(user_id: session[:user_id].to_i).first
+											value = "Unfollow"
+											link="unfollow_question"
+										 else 
+											value= "Follow"
+											link="follow_question"
+										 end %>
+										<%= link_to value, url_for(controller: :home,action: link,id:@question.id),class: "follow_question",id: "question_#{@question.id}" %>
+									</div>
+									<div id = <%= "question_#{@question.id}-followers-numbers" %> class="question-follow-numbers" ><%= @question.question_followers_mappings.length %></div>
+								</div>
+								<% if @question.question_upvotes.where(user_id:session[:user_id].to_i).first %>
+									<div>
+										<%= link_to "Upvoted", url_for(controller: :home,action: :question_upvote,id: @question.id),id:"upvote_question_#{@question.id}",class:"upvote-question"%>
+								</div>
+								<% else %>
+									<div >
+										<%= link_to "Upvote", url_for(controller: :home,action: :question_upvote,id: @question.id),id: "upvote_question_#{@question.id}",class:"upvote-question" %>
+								</div>
+								<% end %>
+								<% if @question.question_downvotes.where(user_id:session[:user_id].to_i).first %>
+									<div>
+									<%= link_to "Downvoted", url_for(controller: :home,action: :question_downvote,id: @question.id),id:"downvote_question_#{@question.id}",class:"downvote-question"%>
+								</div>
+								<% else %>
+									<div>
+										<%= link_to "Downvote", url_for(controller: :home,action: :question_downvote,id: @question.id),id:"downvote_question_#{@question.id}",class:"downvote-question" %>
+									</div>
+								<% end %>
 		</div>
 	</div>
 	<div id="question-page-aside-section">
@@ -33,7 +67,7 @@
 		<div id="related-questions">
 			<% @related_questions.each do |question| %>
 			<div id="related-questions-question">
-				<%= link_to question.questions, url_for(controller: :home,action: :give_answer,id: question.id) %>
+				<%= link_to @question.questions, url_for(controller: :home,action: :give_answer,id: @question.id) %>
 			</div>
 			<% end %>
 		</div>
