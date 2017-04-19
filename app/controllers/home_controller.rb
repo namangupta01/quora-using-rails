@@ -5,6 +5,7 @@ class HomeController < ApplicationController
 		ids=@user.followees.pluck(:followee_id) + [session[:user_id]]
 		#@questions=Question.where("user_id in (?)",ids)
 		@questions=Question.all
+		byebug
 	end
 
 	def ask_question
