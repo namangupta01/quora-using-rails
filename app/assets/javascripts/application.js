@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require jquery-ui
+//= require autocomplete-rails
 
 function onBodyLoad(){
 	d = document.getElementsByClassName("follow_question");	

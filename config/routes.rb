@@ -49,6 +49,8 @@ Rails.application.routes.draw do
 
   post '/profile_update' =>'home#profile_update'
 
+  get 'autocomplete_question_questions' => 'home#autocomplete_question_questions'
+
   namespace :api do
     namespace :v1 do
       post '/sign_in' => 'users_api#sign_in'

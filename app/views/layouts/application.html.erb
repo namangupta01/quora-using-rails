@@ -4,6 +4,8 @@
   <title>QuoraUsingRails</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag "autocomplete-rails.js" %>
+
   <%= csrf_meta_tags %>
   <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -23,7 +25,8 @@
 			</div>
 			<div id="search-section">
 				<%= form_tag({controller: :home,action: :search},method: :get) do %>
-				<%= text_field_tag(:search,nil,placeholder: 'Ask or Search Quora',id: 'search-bar')%><%= submit_tag('Ask Question',id: 'search-button') %>
+				<%=   autocomplete_field_tag 'questions', '', autocomplete_question_questions_path %>
+				<%= submit_tag('Ask Question',id: 'search-button') %>
 				<% end %>
 			</div>
 			<div> 

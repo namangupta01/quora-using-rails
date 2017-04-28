@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
 	before_action :authenticate_user
+	autocomplete :question,:questions
 	def index
 		@user=User.find_by_id(session[:user_id])
 		ids=@user.followees.pluck(:followee_id) + [session[:user_id]]
