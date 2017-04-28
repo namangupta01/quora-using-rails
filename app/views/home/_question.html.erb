@@ -1,0 +1,50 @@
+<div id="content-block">
+					<div id="question">
+						<%= link_to question.questions, url_for(controller: :home,action: :particular_question,id: question.id) %>
+					</div>
+					<div>
+						<% answer=question.answers.first %>
+						<% if answer %>
+							<div id="answer">
+								<%= answer.content %>
+							</div>
+						<% else %>
+							<div id="block-secondary-content">
+								<div id="give-answer">
+									<%= link_to Answer,url_for(controller: :home, action: 'give_answer' ,id: question.id ),class: "answer-button" %>
+								</div>
+								<div class="follow-question">
+									<div>
+										<% if question.question_followers_mappings.where(user_id: session[:user_id].to_i).first
+											value = "Unfollow"
+											link="unfollow_question"
+										 else 
+											value= "Follow"
+											link="follow_question"
+										 end %>
+										<%= link_to value, url_for(controller: :home,action: link,id:question.id),class: "follow_question",id: "question_#{question.id}" %>
+									</div>
+									<div id = <%= "question_#{question.id}-followers-numbers" %> class="question-follow-numbers" ><%= question.question_followers_mappings.length %></div>
+								</div>
+								<% if question.question_upvotes.where(user_id:session[:user_id].to_i).first %>
+									<div>
+										<%= link_to "Upvoted", url_for(controller: :home,action: :question_upvote,id: question.id),id:"upvote_question_#{question.id}",class:"upvote-question"%>
+								</div>
+								<% else %>
+									<div >
+										<%= link_to "Upvote", url_for(controller: :home,action: :question_upvote,id: question.id),id: "upvote_question_#{question.id}",class:"upvote-question" %>
+								</div>
+								<% end %>
+								<% if question.question_downvotes.where(user_id:session[:user_id].to_i).first %>
+									<div>
+									<%= link_to "Downvoted", url_for(controller: :home,action: :question_downvote,id: question.id),id:"downvote_question_#{question.id}",class:"downvote-question"%>
+								</div>
+								<% else %>
+									<div>
+										<%= link_to "Downvote", url_for(controller: :home,action: :question_downvote,id: question.id),id:"downvote_question_#{question.id}",class:"downvote-question" %>
+									</div>
+								<% end %>
+							</div>
+						<% end %>
+					</div>
+				</div>

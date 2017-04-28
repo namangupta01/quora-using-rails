@@ -1,0 +1,13 @@
+	<div>Top Stories For You</div>
+		<div id="content-block">
+			<div id="name"><%= @user.name %></div>
+			<div id="question">
+				<%= link_to "What is your Question?", url_for(controller: :home,action: :ask_question)%>
+			</div>
+		</div>
+			<%= @questions.each do |question| %>
+
+				<%= render 'question' , question: question %>
+
+				
+			<% end %>
