@@ -5,7 +5,6 @@ class HomeController < ApplicationController
 		ids=@user.followees.pluck(:followee_id) + [session[:user_id]]
 		#@questions=Question.where("user_id in (?)",ids)
 		@questions=Question.all
-		byebug
 	end
 
 	def ask_question
@@ -67,8 +66,10 @@ class HomeController < ApplicationController
 
 	def search
 		search=params[:search]
+		@user = User.find(session[:user_id].to_i)
 		query="questions like '%#{search}%'"
 		@questions=Question.where(query)
+		byebug
 	end
 
 	def top_stories
